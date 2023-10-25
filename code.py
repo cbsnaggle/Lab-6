@@ -1,10 +1,10 @@
 def encode(decoded_password):
     global encoded_password
     encoded_password = ''
-    for character in (decoded_password):
+    for character in decoded_password:
         encoded_character = int(character)
         encoded_character += 3
-        encoded_password + str(encoded_character)
+        encoded_password += str(encoded_character)
     return encoded_password
 
 
@@ -20,8 +20,10 @@ if __name__ == '__main__':
             decoded_password = input('Please enter your password to encode: ')
             encoded_password = encode(decoded_password)
             print('Your password has been encoded and stored!\n')
-
-
-        if user_input == '2':
-            print(f'The encoded password is {encode(decoded_password)}, and the original password is {decoded_password}.\n3')
-
+        elif user_input == '2':
+            print(f'The encoded password is {encoded_password}, '
+                  f'and the original password is {decoded_password}.\n')
+        elif user_input == '3':
+            break
+        else:
+            break
