@@ -4,8 +4,18 @@ def encode(decoded_password):
     for character in decoded_password:
         encoded_character = int(character)
         encoded_character += 3
+        encoded_character = encoded_character % 10 # remove 10 if value greater than 9
         encoded_password += str(encoded_character)
     return encoded_password
+
+def decode(encoded):
+    decoded = ""
+    for x in str(encoded):
+        decoded_char = (int(x) - 3)
+        if decoded_char < 0:
+            decoded_char += 10
+        decoded += str(decoded_char)
+    return decoded
 
 
 if __name__ == '__main__':
@@ -22,7 +32,7 @@ if __name__ == '__main__':
             print('Your password has been encoded and stored!\n')
         elif user_input == '2':
             print(f'The encoded password is {encoded_password}, '
-                  f'and the original password is {decoded_password}.\n')
+                  f'and the original password is {decode(encoded_password)}.\n')
         elif user_input == '3':
             break
         else:
